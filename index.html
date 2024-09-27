@@ -21,7 +21,8 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
-            position: relative;
+            text-align: center;
+            flex-direction: column; /* Align text vertically */
         }
 
         @keyframes float {
@@ -45,52 +46,70 @@
 
         .message {
             z-index: 1;
-            text-align: center;
-            font-size: 3em;
             padding: 30px;
-            background: rgba(255, 255, 255, 0.0);
             border-radius: 15px;
             backdrop-filter: blur(0px);
             animation: float 4s ease-in-out infinite;
+            max-width: 600px; /* Limit max width for better readability */
+            margin-top: 50px; /* Space from the top */
         }
 
         p {
             margin: 10px 0;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            font-size: 3em; /* Adjusted font size for main text */
         }
 
         .message p:nth-child(2) {
-            font-size: 1.5em;
+            font-size: 2.5em; /* Slightly smaller size for the link text */
         }
-.play-link {
-    color: #ff4081; /* Original color for the link */
-    cursor: pointer;
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
-}
 
-.play-link:hover {
-    color: #ff1493; /* Brighter color on hover */
-    text-shadow: 0 0 90px #ff1493; /* Glow effect */
-    transform: scale(0.1); /* Slightly enlarge text */
-}
+        .play-link {
+            color: #ff4081; /* Original color for the link */
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+        }
 
+        .play-link:hover {
+            color: #ff1493; /* Brighter color on hover */
+            text-shadow: 0 0 90px #ff1493; /* Glow effect */
+            transform: scale(1.1); /* Slightly enlarge text */
+        }
+
+        /* Media Queries for Mobile Compatibility */
+        @media (max-width: 600px) {
+            body {
+                height: auto; /* Allow height to be auto on mobile */
+                justify-content: flex-start; /* Align to top */
+                padding-top: 20px; /* Space from top */
+            }
+            p {
+                font-size: 1em; /* Adjust font size for mobile */
+            }
+            .play-link {
+                font-size: 1em; /* Adjust link size for mobile */
+            }
+            .message {
+                padding: 15px; /* Reduce padding for smaller screens */
+                margin-top: 0; /* Remove margin top for mobile */
+            }
+        }
     </style>
 </head>
 <body>
     <audio id="divAudio">
         <source src="https://github.com/OsmanArjen/theOne/raw/refs/heads/main/videoplayback.m4a" type="audio/mp4">
-        
     </audio>    
     <div class="hearts"></div>
     <div class="message">
-        <p>Seni seviyorum Elif</p>
-        <p><span class="play-link" onclick="playAudio()">Her zaman seni seveceğim</p>
-	<p>Her hayattaki Eşim...</p>
-    <p style="font-size: 0.7em; margin-top: 20px;">
-        Varlığında, yokluğunda... yakınlığında, uzaklığında senin için içim yanıyor Elif.<br>
-        Sen yokken ya görürsem diye korkar, sen varken ya göremezsem diye korkarım.<br>
-        Çünkü sen benim için "o"sun, bende senin için "o"yum.
-    </p>
+        <p>Seni seviyorum, Elif.</p>
+        <p><span class="play-link" onclick="playAudio()">Her zaman seni seveceğim</span></p>
+        <p>Her hayattaki Eşim...</p>
+        <p style="font-size: 1.5em; margin-top: 20px;"> <!-- Adjusted for better readability -->
+            Varlığında, yokluğunda... yakınlığında, uzaklığında senin için içim yanıyor Elif.<br>
+            Sen yokken ya görürsem diye korkar, sen varken ya göremezsem diye korkarım.<br>
+            Çünkü sen benim için "o"sun, bende senin için "o"yum.
+        </p>
     </div>
     <script>
         function playAudio() {
@@ -98,7 +117,5 @@
             audio.play();
         }
     </script>
-
-
 </body>
 </html>
