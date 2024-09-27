@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love Message</title>
     <style>
+        @font-face {
+            font-family: 'Dancing Script';
+            src: url('data:font/woff2;charset=utf-8;base64,d09GMgABAAAAAAiMABAAAAAAwBwAAAAAAAACvAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCGCkAUBxQABCAFhG0gdx2xHg2UEBEgDgINAQE2AiUgKgJEMABEMBxAAAAAAAAAAAAAAAAAAAAAAEAAAAAwAAAAEAAACNAQAAHwAAAAA3AAACWQAAAAgAAAAGAAABYwAABSUAAAOEAAAAYAAAFtQAAABgAAAByAAAAogAAAAIAAAAACAAAAAgAAwAPAAEAAAAEAAAAAAAAAABAAAAAAAAAAEAAAAEAAAAAAEAAAABAAAAAAAAAQAAAAEAAAAAAAAAAD8AXwFfAF8AzgDqAO4A9QEXAWIBbwGYAZ8BvgHuAgACFAIxAjgCPgJRAmoCeQJ/AokCnAKhAroC1gLxAwIDFAMZAx4DJgMoAyoDLwM0AzgDPQNLA1QDbQNtA3gDigNwA6oDwAPuBAEEBQZSBnQGgAeCCFYIYAhjCDoIQwhhCHYIegkACRoIYghyCEIIaAg8CQIJCAkCCQ0JGAkqCTMJPglECVwJbglzCXgJgAmJCaUJxQnZCfgKCgqPClIKqgquCtkK7gr3CwgLIgs/C1cLWwtwC4MLiAuQC6kLwAv8DCIMVgx3DNcM4wz4DV4NXA2NDc8OAQ6IDpoOpA7fDuwO/A8JDxQPSw+1D7YPrg/AD8UPww/TD/4QAxiBGLIY1RjXGMQYyBjRGOQY5hg8GKwYyRj/GLoY3RkNGOUY+RkHGQcZBxoHGkcjRyFHJkcxRzpHQUdBR0FHQkdFR0tHUUdUR1pHYEdiR2hHbkdwR4lHjUeUR5dHqEepR7VHxMfEx/zICIgXiEjIT8hTiE2IWUhdiHPIdIh2SJHIrIjIiPSJ7IlQiViJmInsiiyKVInAiXiJ2IoYiiCKUIpMjEiMTAiwjMiNKI9IjciOiJSIlUjQyOTJAomBCYEtgSbBAIEXgQWhBGEDwQNQidAkqCRAIJQhMCAAACRQgdBiUBMQNpApACvQOmA4YCwgLcAvIDMwMjAxICmQJlAmMBDAFqAWUBJQEAgD+AdoBFgEIAUsBZwEdAowC6AGhALYAdABCAHYAaAB5AFsAGQAlgDoANABQgFXAAJADiAGeAkIAFYAegBtANkAAeAMMAY8BAgAAAAEAAAAAAAAAAAAAAAAAAAQAAABIAAAAAAAAAAAAAAAAAAAFAAAIAAAAAAAAAAAAAAAAAAAAABwA2AAAAwYfCNQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAoAAAKgAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==') format('woff2');
+        }
+
         body {
             margin: 0;
             padding: 0;
             background-color: #000;
             color: #fff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Dancing Script', cursive;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,24 +24,43 @@
             position: relative;
         }
 
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
         .hearts {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><text y="20" font-size="20" fill="rgba(255,255,255,0.2)">❤️</text></svg>');
-            background-size: 200px 200px;
-            opacity: 1.0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><text y="20" font-size="20" fill="rgba(255,255,255,1)">❤️</text></svg>');
+            background-size: 150px 150px;
+            opacity: 1;
             pointer-events: none;
+            animation: float 6s ease-in-out infinite;
         }
 
         .message {
             z-index: 1;
             text-align: center;
-            font-size: 2em;
-            padding: 20px;
-            backdrop-filter: blur(5px);
+            font-size: 3em;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        p {
+            margin: 10px 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .message p:nth-child(2) {
+            font-size: 1.5em;
         }
     </style>
 </head>
@@ -44,7 +68,8 @@
     <div class="hearts"></div>
     <div class="message">
         <p>Seni seviyorum Elif</p>
-        <p>Her hayattaki eşim...</p>
+        <p>Her zaman seni seveceğim</p>
+	<p>Her hayattaki Eşim...</p>
     </div>
 </body>
 </html>
